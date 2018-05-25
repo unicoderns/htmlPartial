@@ -8,15 +8,18 @@ Support: https://github.com/unicoderns/htmlPartial
 */
 
 (function () {
+    function fetchFile(tag) {
+        fetch(tag.getAttribute("file")).then(function (response) {
+            return response.text();
+        })
+        .then(function (html) {
+            tag.innerHTML = html;
+        });    
+    }
+
     var partialTags = document.getElementsByTagName("partial");
     var i;
     for (i = 0; i < partialTags.length; i++) {
-        var tag = partialTags[i];
-        fetch(partialTags[i].getAttribute("file")).then(function (response) {
-                return response.text();
-            })
-            .then(function (html) {
-                tag.innerHTML = html;
-            });
+        fetchFile(partialTags[i]);
     }
 })();
