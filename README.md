@@ -48,7 +48,7 @@ sudo npm install http-server -g
 2. Run the server on selected folder:
 
 ```javascript
-http - server;
+http - server
 ```
 
 ### Python
